@@ -8,7 +8,7 @@ export async function callOpenAI(
   const start = Date.now();
   try {
     const res = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
+      `${process.env.OPEN_API_URL}`,
       {
         model: model,
         messages: [{ role: "user", content: prompt }],
@@ -72,7 +72,7 @@ export async function callClaude(
 
   try {
     const res = await axios.post(
-      "https://api.anthropic.com/v1/messages",
+      `${process.env.ANTHROPIC_API_URL}`,
       {
         model: model,
         max_tokens: 1024,
