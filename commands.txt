@@ -1,0 +1,7 @@
+npm install mongodb mongoose openai @anthropic-ai/sdk tiktoken uuid
+
+npm install --save-dev @types/uuid
+
+npm install mongodb@^6.3.0 mongoose@^8.0.3 openai@^4.20.1 @anthropic-ai/sdk@^0.9.1 tiktoken@^1.0.10 uuid@^9.0.1 @types/uuid@^9.0.7
+
+npm install @anthropic-ai/sdk openai tiktoken
