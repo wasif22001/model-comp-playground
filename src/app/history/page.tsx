@@ -4,6 +4,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { useHistory } from "@/hooks/useHistory";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 // const mockComparisons = [
 //   { id: "mock1", prompt: "Explain black holes." },
@@ -12,6 +13,8 @@ import { useHistory } from "@/hooks/useHistory";
 // ];
 
 export default function HistoryPage() {
+  useAuthGuard();
+
   const { history, loading, error } = useHistory();
 
   return (
