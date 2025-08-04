@@ -45,47 +45,47 @@ model-comp-playground/
 ├── app/      
 │ ├── api/     
 │ │ ├── compare/     
-│ │ │ └── route.ts # Backend API to compare responses for 3 LLMs     
+│ │ │ └── route.ts *Backend API to compare responses for 3 LLMs*     
 │ │ ├── history/     
 │ │ │ ├── [id]/     
-│ │ │ │ └── route.ts # Get a single comparison by ID     
-│ │ │ └── route.ts # Get all comparisons, stored previously     
+│ │ │ │ └── route.ts * Get a single comparison by ID*     
+│ │ │ └── route.ts * Get all comparisons, stored previously*     
 │ │ ├── login/     
-│ │ │ └── route.ts # An endpoint to login, using email and password     
+│ │ │ └── route.ts * An endpoint to login, using email and password*     
 │ │ └── signup/     
-│ │ └── route.ts # An endpoint to create a new user     
+│ │ └── route.ts * An endpoint to create a new user*     
 │ ├── history/     
 │ │ ├── [id]/     
-│ │ │ └── page.tsx # UI to see a single comparison result     
-│ │ └── page.tsx # UI to see previously stored comparisons     
+│ │ │ └── page.tsx * UI to see a single comparison result*     
+│ │ └── page.tsx * UI to see previously stored comparisons*     
 │ ├── login/     
-│ │ └── page.tsx # Login UI     
+│ │ └── page.tsx * Login UI*     
 │ ├── signup/     
-│ │ └── page.tsx # Signup UI     
-│ ├── page.tsx # UI to input Prompt input and compare models     
-│ └── globals.css # Global styles     
+│ │ └── page.tsx * Signup UI*     
+│ ├── page.tsx * UI to input Prompt input and compare models*     
+│ └── globals.css * Global styles*     
 │     
 ├── components/     
-│ ├── Navbar.tsx # Navbar component     
-│ ├── PromptInput.tsx # Prompt input box component     
-│ ├── ModelResponseCard.tsx # component for a model response     
-│ ├── HistoryList.tsx # component for a list of past comparisons     
-│ ├── ThemeToggle.tsx # component for Dark/Light toggle     
+│ ├── Navbar.tsx * Navbar component*     
+│ ├── PromptInput.tsx * Prompt input box component*     
+│ ├── ModelResponseCard.tsx * component for a model response*     
+│ ├── HistoryList.tsx * component for a list of past comparisons*     
+│ ├── ThemeToggle.tsx * component for Dark/Light toggle*     
 │     
 ├── hooks/     
-│ ├── useCompareModel.ts # Custom hook to compare models     
-│ ├── useAuth.ts # Custom hook for Signup/login/logout logic     
-│ ├── useAuthGuard.ts # Custom hook to protect routes based on login state     
+│ ├── useCompareModel.ts * Custom hook to compare models*     
+│ ├── useAuth.ts * Custom hook for Signup/login/logout logic*     
+│ ├── useAuthGuard.ts * Custom hook to protect routes based on login state*     
 │     
 ├── lib/     
-│ ├── mongoose.ts # MongoDB connection logic     
+│ ├── mongoose.ts * MongoDB connection logic*     
 │ ├── models/     
-│ │ ├── Comparison.ts # Mongoose schema for prompt and responses     
-│ │ └── User.ts # Mongoose schema for email and password     
-│ └── models.ts # LLM model-specific API handlers     
+│ │ ├── Comparison.ts * Mongoose schema for prompt and responses*     
+│ │ └── User.ts * Mongoose schema for email and password*     
+│ └── models.ts * LLM model-specific API handlers*     
 │     
 ├── public/       
-├── .env.local # Environment variables     
+├── .env.local * Environment variables*     
 ├── tailwind.config.ts       
 ├── tsconfig.json       
 └── next.config.js     
