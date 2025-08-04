@@ -72,10 +72,15 @@ export default function HistoryDetailPage() {
   useEffect(() => {
     async function fetchComparison() {
       try {
-        const res = await fetch(`/api/history/${params.id}`);
-        const data = await res.json();
-        setPrompt(data.prompt);
-        setResponses(data.responses);
+        if (params && params.id) {
+          const res = await fetch(`/api/history/${params.id}`);
+          const data = await res.json();
+          setPrompt(data.prompt);
+          setResponses(data.responses);
+        } else {
+          setPrompt("id not found");
+          setResponses([]);
+        }
       } catch (err) {
         console.error("Failed to load comparison:", err);
       } finally {
