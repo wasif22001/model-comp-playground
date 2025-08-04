@@ -6,6 +6,7 @@ import ModelResponseCard from "@/components/ModelResponseCard";
 import Navbar from "@/components/Navbar";
 import { ModelResponse } from "@/types/Response";
 import { useCompareModels } from "../hooks/useCompareModel";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 const MOCK_RESPONSES: ModelResponse[] = [
   {
@@ -40,6 +41,8 @@ const MOCK_RESPONSES: ModelResponse[] = [
   },
 ];
 export default function HomePage() {
+  useAuthGuard();
+
   const [prompt, setPrompt] = useState("");
 
   const { responses, loading, error, compare } = useCompareModels();

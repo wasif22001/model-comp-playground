@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Comparison } from "../../../lib/models/Comparison";
 import { connectToDatabase } from "../../../lib/mongoose";
 import { callOpenAI, callClaude } from "@/lib/models";
-import { model } from "mongoose";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 // async function callOpenAI(prompt: string) {
 //   const start = Date.now();
@@ -47,7 +47,7 @@ import { model } from "mongoose";
 //   };
 // }
 
-const defaultResponse = (provider: string, model: String, error: string) => ({
+const defaultResponse = (provider: string, model: string, error: string) => ({
   provider,
   model: model,
   content: `Error from ${provider}: ${error}`,

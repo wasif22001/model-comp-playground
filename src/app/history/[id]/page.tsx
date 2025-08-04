@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import ModelResponseCard from "@/components/ModelResponseCard";
 import { useFetchComparisonById } from "@/hooks/useFetchComparisonById";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 // const MOCK_HISTORY_RESPONSE: ModelResponse[] = [
 //   {
@@ -64,6 +65,8 @@ import { useFetchComparisonById } from "@/hooks/useFetchComparisonById";
 // }
 
 export default function HistoryDetailPage() {
+  useAuthGuard();
+
   const params = useParams();
   const { data, loading, error } = useFetchComparisonById(params?.id as string);
 
