@@ -85,7 +85,7 @@ model-comp-playground/
 │ └── models.ts                   *LLM model-specific API handlers*     
 │     
 ├── public/       
-├── .env.local *                  Environment variables*     
+├── .env.local                   *Environment variables*     
 ├── tailwind.config.ts       
 ├── tsconfig.json       
 └── next.config.js     
