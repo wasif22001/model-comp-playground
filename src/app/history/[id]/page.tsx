@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import ModelResponseCard from "@/components/ModelResponseCard";
-import { ModelResponse } from "@/types/Response";
+import { useFetchComparisonById } from "@/hooks/useFetchComparisonById";
+
 // const MOCK_HISTORY_RESPONSE: ModelResponse[] = [
 //   {
 //     provider: "OpenAI",
@@ -65,33 +65,7 @@ import { ModelResponse } from "@/types/Response";
 
 export default function HistoryDetailPage() {
   const params = useParams();
-  const [prompt, setPrompt] = useState("");
-  const [responses, setResponses] = useState<ModelResponse[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchComparison() {
-      try {
-        if (params && params.id) {
-          const res = await fetch(`/api/history/${params.id}`);
-          const data = await res.json();
-          setPrompt(data.prompt);
-          setResponses(data.responses);
-        } else {
-          setPrompt("id not found");
-          setResponses([]);
-        }
-      } catch (err) {
-        console.error("Failed to load comparison:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (params?.id) {
-      fetchComparison();
-    }
-  }, [params?.id]);
+  const { data, loading, error } = useFetchComparisonById(params?.id as string);
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
@@ -99,16 +73,20 @@ export default function HistoryDetailPage() {
       <main className="max-w-7xl mx-auto px-4 py-6">
         {loading ? (
           <p>Loading...</p>
-        ) : (
+        ) : error ? (
+          <p className="text-red-500">{error}</p>
+        ) : data ? (
           <>
             <h2 className="text-xl font-semibold mb-4">Prompt:</h2>
-            <p className="italic text-[var(--subtext)] mb-6">{prompt}</p>
+            <p className="italic text-[var(--subtext)] mb-6">{data.prompt}</p>
             <div className="grid md:grid-cols-3 gap-4">
-              {responses.map((res, i) => (
+              {data.responses.map((res, i) => (
                 <ModelResponseCard key={i} response={res} />
               ))}
             </div>
           </>
+        ) : (
+          <p>Comparison not found.</p>
         )}
       </main>
     </div>
